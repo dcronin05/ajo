@@ -1,3 +1,6 @@
+import a_math
+
+
 class Say:
 
     def __init__(self, string):
@@ -15,10 +18,10 @@ class Say:
             self.determine_command()
 
     def determine_command(self):
-        if self.ARG == '"':
+        if '"' in self.ARG:
             self.display_string()
         elif '+' or '-' or '/' or '*' in self.ARG:
-            self.display_string()
+            self.display_math()
 
     def display_string(self):
         the_string = self.ARG[1:-1]
@@ -26,7 +29,8 @@ class Say:
 
     def display_math(self):
         # TODO: create method to process math arguments
-        pass
+        function = self.ARG.replace(' ', '')
+        print(a_math.parse_operators(function))
 
 
 class IncorrectSayCommand(Exception):
