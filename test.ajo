@@ -1,0 +1,2 @@
+say: "Hello World";
+say: 5 + 5;
